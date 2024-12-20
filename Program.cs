@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            ConvertToOctal();
+            ConvertToHex();
             Console.ReadKey();
         }
 
@@ -48,6 +48,26 @@
             }
 
             Console.WriteLine($"8-lik sanoq sistemasidagi qiymat: {octal}");
+        }
+        static void ConvertToHex()
+        {
+            Console.Write("10-lik sanoq sistemasidagi sonni kiriting: ");
+            int decimalNumber = int.Parse(Console.ReadLine());
+
+            if (decimalNumber == 0)
+                Console.WriteLine("0"); return;
+
+            string hexDigits = "0123456789ABCDEF";
+            string hex = "";
+
+            while (decimalNumber > 0)
+            {
+                int remainder = decimalNumber % 16;
+                hex = hexDigits[remainder] + hex;
+                decimalNumber /= 16;
+            }
+
+            Console.WriteLine($"16-lik sanoq sistemasidagi son: {hex}");
         }
     }
 }
